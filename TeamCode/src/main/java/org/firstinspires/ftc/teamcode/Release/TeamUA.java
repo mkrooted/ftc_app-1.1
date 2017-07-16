@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.Release;
 import android.app.Activity;
 import android.util.Log;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -20,12 +21,8 @@ import org.firstinspires.ftc.teamcode.TeamUA_Library.Controls.SwitchStateListene
 import org.firstinspires.ftc.teamcode.TeamUA_Library.Controls.Key;
 import org.firstinspires.ftc.teamcode.TeamUA_Library.General;
 
-/**
- * Created by mkrooted on 19.06.2017.
- */
-
-@TeleOp(name = "Patriotic Harvester V1.0", group = "Release")
-public class TeamUA extends OpMode {
+@TeleOp(name = "TEAM UA - VERY FINAL RELEASE", group = "Release")
+public class TeamUA extends LinearOpMode {
     private PatrioticHarvesterControls controlsManager;
     private PatrioticHarvesterHardware hardwareManager;
     private ElapsedTime period;
@@ -48,7 +45,23 @@ public class TeamUA extends OpMode {
     private InverseMiddleware blue_container_condition;
 
     @Override
-    public void init() {
+    public void runOpMode() throws InterruptedException {
+        // Initializing
+        my_init();
+
+        //Starting
+        my_start();
+
+        //Main loop
+        while (opModeIsActive()) {
+            my_loop();
+        }
+
+        //Stopping
+        my_stop();
+    }
+
+    private void my_init() {
         controlsManager = new PatrioticHarvesterControls(this);
         hardwareManager = new PatrioticHarvesterHardware(this, controlsManager);
 
@@ -60,9 +73,7 @@ public class TeamUA extends OpMode {
         Log.i(TAG, "SYSTEM INIT FINISHED");
     }
 
-    @Override
-    public void start() {
-        super.start();
+    private void my_start() throws InterruptedException {
         controlsManager.start();
         hardwareManager.start();
 
@@ -100,15 +111,10 @@ public class TeamUA extends OpMode {
         Log.i(TAG, "ROBOT ONLINE");
         last_log_time = period.milliseconds();
 
-        try {
-            General.waitForTick(period, 5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        General.waitForTick(period, 5);
     }
 
-    @Override
-    public void loop() {
+    private void my_loop() {
         boolean logging = false;
         if (period.milliseconds() - last_log_time >= LOGGING_INTERVAL) {
             logging = true;
@@ -137,13 +143,13 @@ public class TeamUA extends OpMode {
 
         handleBrake();
         if (logging) Log.i(TAG, ">  brake handling\n>  LOOP END");
+
+        idle();
     }
 
-    @Override
-    public void stop() {
+    private void my_stop() {
         controlsManager.stop();
         hardwareManager.stop();
-        super.stop();
 
         telemetry.addData("System", "SYSTEM OFFLINE");
         Log.i(TAG, "ROBOT STOPPED");

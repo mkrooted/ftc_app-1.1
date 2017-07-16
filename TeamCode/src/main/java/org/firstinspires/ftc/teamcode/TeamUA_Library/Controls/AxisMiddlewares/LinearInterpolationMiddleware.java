@@ -1,10 +1,5 @@
 package org.firstinspires.ftc.teamcode.TeamUA_Library.Controls.AxisMiddlewares;
 
-/**
- * Created by mkrooted on 15.06.2017.
- */
-
-
 public class LinearInterpolationMiddleware extends AxisMiddleware {
     private double k, bias;
 

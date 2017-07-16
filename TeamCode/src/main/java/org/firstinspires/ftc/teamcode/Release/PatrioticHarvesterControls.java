@@ -6,10 +6,6 @@ import org.firstinspires.ftc.teamcode.TeamUA_Library.Controls.GamepadHandler;
 import org.firstinspires.ftc.teamcode.TeamUA_Library.Controls.Key;
 import org.firstinspires.ftc.teamcode.TeamUA_Library.Managers.ControlsManager;
 
-/**
- * Created by mkrooted on 20.06.2017.
- */
-
 class PatrioticHarvesterControls implements ControlsManager {
     GamepadHandler.SwitchInput red_gate_switch;  // B
     GamepadHandler.SwitchInput blue_gate_switch; // X

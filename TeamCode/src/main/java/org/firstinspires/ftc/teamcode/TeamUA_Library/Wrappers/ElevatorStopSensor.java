@@ -6,10 +6,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 import java.util.ArrayList;
 
-/**
- * Created by mkrooted on 23.06.2017.
- */
-
 public class ElevatorStopSensor {
     private LynxI2cColorRangeSensor sensor;
     private ArrayList<SensorEventListener> eventListenerList;

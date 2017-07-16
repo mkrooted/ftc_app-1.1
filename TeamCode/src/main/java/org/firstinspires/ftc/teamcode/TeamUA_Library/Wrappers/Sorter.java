@@ -9,10 +9,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by mkrooted on 06.06.2017.
- */
-
 public class Sorter {
     private Servo servo;
     private LynxI2cColorRangeSensor color_sensor;

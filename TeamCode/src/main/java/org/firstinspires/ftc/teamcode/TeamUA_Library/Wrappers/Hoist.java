@@ -2,10 +2,6 @@ package org.firstinspires.ftc.teamcode.TeamUA_Library.Wrappers;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-/**
- * Created by mkrooted on 19.06.2017.
- */
-
 public class Hoist {
     private DcMotor motor;
     private int top_pos = 16400;

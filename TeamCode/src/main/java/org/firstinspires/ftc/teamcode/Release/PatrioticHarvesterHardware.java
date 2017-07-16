@@ -16,10 +16,6 @@ import org.firstinspires.ftc.teamcode.TeamUA_Library.Wrappers.ElevatorStopSensor
 import org.firstinspires.ftc.teamcode.TeamUA_Library.Wrappers.Hoist;
 import org.firstinspires.ftc.teamcode.TeamUA_Library.Wrappers.Sorter;
 
-/**
- * Created by mkrooted on 19.06.2017.
- */
-
 class PatrioticHarvesterHardware implements HardwareManager {
     DcMotor hoist_dc;
     DcMotor harvester_dc;
